@@ -1,4 +1,5 @@
 const tailwindcss = require("tailwindcss");
+const plugin = require("tailwindcss/plugin");
 
 module.exports = { 
     prefix: '',
@@ -21,7 +22,14 @@ module.exports = {
     },
     plugins: [
         require('@tailwindcss/forms'),
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        plugin(function({addBase, theme}) {
+            addBase({
+                'h1': { fontSize: theme('fontSize.2xl')},
+                'h2': { fontSize: theme('fontSize.xl') },
+                'h3': { fontSize: theme('fontSize.lg') },
+            })
+        })
     ],
     theme: {
         fontFamily: {
