@@ -1,0 +1,119 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// $banner_right: #a52a2a;
+// $banner_left: #2aa5a5;
+$banner_left: #7fc9c9;
+$banner_right: #b75454;
+
+@layer components {
+    .section { 
+        &__wrapper {
+            @apply container relative mx-0 flex flex-col md:flex-row flex-nowrap flex-auto w-screen max-w-full max-h-full; 
+        }
+    }
+
+    .banner {
+        &__front,
+        &__photo,
+        &__back {
+            @apply w-full
+        }
+
+        &__front {
+            @apply transform md:-skew-x-12
+        }
+
+        &__photo {
+            @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center;
+
+            &--img-wrapper {
+                @apply relative my-0 mx-auto;
+
+                img {
+                    @apply absolute;
+                }
+            }
+        }
+
+        &__back {
+
+        }
+    }
+}
+
+.section {
+    &__wrapper {
+        background: linear-gradient(to right, $banner_left 15%, $banner_right 0%);
+        height: 37.5rem;
+    }
+}
+
+.banner {
+    &__front {
+        background-color: $banner_left;
+    }
+
+    &__photo {
+        &--img-wrapper {
+            // position: relative;
+            width: 15rem;
+            height: 15rem;
+            // margin: 0 auto;
+        
+            img {
+            //   position: absolute;
+              width: inherit;
+              top: 0;
+              left: 0;
+              transform-origin: left;
+              width: inherit;
+              height: inherit;
+              border-radius: 100%;
+            }
+        }
+    
+        &--image-1 {
+            clip-path: polygon(0 0, 0 32%, 28% 0);
+            transform: translate(-10px, -10px);
+            transition: transform 300ms ease;
+            transform-origin: top;
+            .banner__photo--img-wrapper:hover & {
+                transform: translate(0, 0);
+            }
+        }
+    
+        &--image-2 {
+            clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+            transform: translate(-30px, 5px);
+            transition: transform 300ms ease;
+            .banner__photo--img-wrapper:hover & {
+                transform: translate(0, 0);
+            }
+        }
+    
+        &--image-3 {
+            clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+            transform: translate(-15px, -10px);
+            transition: transform 300ms ease;
+            .banner__photo--img-wrapper:hover & {
+                transform: translate(0, 0);
+            }
+        }
+    
+        &--image-4 {
+            clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+            transform: translate(-32px, 5px);
+            transition: transform 300ms ease;
+            transform-origin: top;
+            .banner__photo--img-wrapper & {
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+    &__back {
+       background-color: $banner_right;
+    }
+}
