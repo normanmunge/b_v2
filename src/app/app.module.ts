@@ -7,6 +7,7 @@ import { BannerSlideComponent } from './banner-slide/banner-slide.component';
 import { ContactComponent } from './contact/contact.component';
 import { BriefComponent } from './brief/brief.component';
 import { BlogComponent } from './blog/blog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BlogComponent } from './blog/blog.component';
     BannerSlideComponent,
     ContactComponent,
     BriefComponent,
-    BlogComponent
+    BlogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
