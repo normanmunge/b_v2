@@ -1,11 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+/******** HELPERS ie Variable, Mixins ***************/
+@import "./assets/styles/helpers/variables.scss";
+@import "./assets/styles/base/global.scss";
 
-$color_primary: #a52a2a;
-$color_secondary: #2aa5a5;
+/********* BASE ie global, typography ***************/
+@import "./assets/styles//base/typography.scss";
+
+@layer base {
+  body {
+    @apply md:p-48;
+  }
+
+  h1,
+  h2 {
+    @apply font-bold;
+  }
+}
 
 //to extend tailwind utilities
 // @layer utilities {
@@ -19,3 +33,245 @@ $color_secondary: #2aa5a5;
 //         scroll-snap-type: y;
 //     }
 // }
+
+@layer components {
+  .section {
+    &__wrapper {
+      @apply container relative mx-0 flex flex-col md:flex-row flex-nowrap flex-auto w-screen max-w-full max-h-full;
+    }
+  }
+
+  .banner {
+    &__front,
+    &__photo,
+    &__back {
+      @apply w-full;
+    }
+
+    &__front {
+      @apply transform md:-skew-x-12;
+    }
+
+    &__photo {
+      @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center;
+
+      &--img-wrapper {
+        @apply relative my-0 mx-auto;
+
+        img {
+          @apply absolute;
+        }
+      }
+    }
+
+    &__back {
+    }
+  }
+
+  .skills {
+    &__type {
+      @apply block pt-8 text-center;
+    }
+    &__list {
+      @apply relative text-center;
+
+      &.is--front-banner {
+        @apply transform md:skew-x-12;
+      }
+      &-item {
+      }
+    }
+  }
+
+  .user {
+    &__details {
+      @apply flex flex-col md:flex-row;
+    }
+
+    &__profile {
+      @apply order-2 md:order-1;
+    }
+
+    &__wrapper {
+      @apply relative flex flex-col m-auto order-1 md:order-2 md:text-center;
+    }
+
+    &__title {
+      &-forename,
+      &-surname {
+        @apply font-bold;
+      }
+    }
+
+    &__description {
+      @apply p-1 font-light;
+    }
+
+    &__image {
+    }
+
+    &__img-wrapper {
+      @apply relative mx-0 my-auto;
+
+      img {
+        @apply absolute top-0 left-0;
+      }
+    }
+  }
+}
+
+.section {
+  &__wrapper {
+    background: linear-gradient(to right, $banner_left 15%, $banner_right 0%);
+    height: 37.5rem;
+  }
+}
+
+.banner {
+  &__front {
+    background-color: $banner_left;
+  }
+
+  &__photo {
+    &--img-wrapper {
+      // position: relative;
+      width: 15rem;
+      height: 15rem;
+      // margin: 0 auto;
+
+      img {
+        //   position: absolute;
+        width: inherit;
+        top: 0;
+        left: 0;
+        transform-origin: left;
+        width: inherit;
+        height: inherit;
+        border-radius: 100%;
+      }
+    }
+
+    &--image-1 {
+      clip-path: polygon(0 0, 0 32%, 28% 0);
+      transform: translate(-10px, -10px);
+      transition: transform 300ms ease;
+      transform-origin: top;
+      .banner__photo--img-wrapper:hover & {
+        transform: translate(0, 0);
+      }
+    }
+
+    &--image-2 {
+      clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+      transform: translate(-30px, 5px);
+      transition: transform 300ms ease;
+      .banner__photo--img-wrapper:hover & {
+        transform: translate(0, 0);
+      }
+    }
+
+    &--image-3 {
+      clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+      transform: translate(-15px, -10px);
+      transition: transform 300ms ease;
+      .banner__photo--img-wrapper:hover & {
+        transform: translate(0, 0);
+      }
+    }
+
+    &--image-4 {
+      clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+      transform: translate(-32px, 5px);
+      transition: transform 300ms ease;
+      transform-origin: top;
+      .banner__photo--img-wrapper & {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  &__back {
+    background-color: $banner_right;
+  }
+}
+
+.user {
+  &__details {
+  }
+
+  &__profile {
+    max-width: 50%;
+  }
+
+  &__title {
+    &-forename {
+      color: rgba($color_black, 0.25);
+    }
+
+    &-surname {
+      color: $color_primary;
+    }
+  }
+
+  &__description {
+  }
+
+  &__image {
+    flex: 0 1 40%;
+  }
+  &__img-wrapper {
+    width: 15rem;
+    height: 15rem;
+
+    img {
+      width: inherit;
+      height: inherit;
+      transform-origin: left;
+      border-radius: 100%;
+    }
+  }
+
+  &__image-1 {
+    clip-path: polygon(0 0, 0 32%, 28% 0);
+    transform: translate(-10px, -10px);
+    transition: transform 300ms ease;
+    transform-origin: top;
+    .user__img-wrapper:hover & {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__image-2 {
+    clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+    transform: translate(-30px, 5px);
+    transition: transform 300ms ease;
+    .user__img-wrapper:hover & {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__image-3 {
+    clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+    transform: translate(-15px, -10px);
+    transition: transform 300ms ease;
+    .user__img-wrapper:hover & {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__image-4 {
+    clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+    transform: translate(-32px, 5px);
+    transition: transform 300ms ease;
+    transform-origin: top;
+    .user__img-wrapper & {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.skills {
+  &__type {
+    font-family: "Yeseva One", cursive;
+  }
+}
