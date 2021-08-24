@@ -1,18 +1,32 @@
 <section class="section__wrapper">
-    <!-- Start of the frontend section -->
-    <div class="banner__front">
-        FRONT-END
-    </div>
-    <!-- Start of the backend section -->
-    <span class="banner__photo">
-        <div class="banner__photo--img-wrapper">
+  <!-- Start of the frontend section -->
+  <div class="banner__front">
+    <b class="skills__type">Frontend</b>
+    <ul class="skills__list is--front-banner">
+      <li *ngFor="let skill of this.frontEndSkills" class="skills__list-item">
+        {{ skill }}
+      </li>
+    </ul>
+  </div>
+  <!-- Start of the backend section -->
+  <span class="banner__photo">
+    <h2>
+      My top skills <br />
+      Engineering
+    </h2>
+    <!-- <div class="banner__photo--img-wrapper">
             <img class="banner__photo--image-1" src="/assets/images/me.png" alt="Norman Munge" />
             <img class="banner__photo--image-2" src="/assets/images/me.png" alt="Norman Munge" />
             <img class="banner__photo--image-3" src="/assets/images/me.png" alt="Norman Munge" />
             <img class="banner__photo--image-4" src="/assets/images/me.png" alt="Norman Munge" />
-        </div>
-    </span>
-    <div class="banner__back">
-        Back-End
-    </div>
+        </div> -->
+  </span>
+  <div class="banner__back">
+    <b class="skills__type">Backend / System</b>
+    <ul class="skills__list">
+      <li *ngFor="let skill of this.backEndSkills" class="skills__list-item">
+        {{ skill }}
+      </li>
+    </ul>
+  </div>
 </section>
