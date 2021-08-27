@@ -14,6 +14,10 @@ html {
   height: 100%;
 }
 
+body {
+  background-color: $color_base;
+}
+
 p,
 li {
   font-size: 1.8rem;
@@ -27,4 +31,16 @@ a {
 .text-xl {
   font-size: 3.4rem;
   line-height: 4.1rem;
+}
+
+button {
+  $btn_color: #c9ab7f;
+  background-color: $btn_color;
+  outline: $btn_color;
+  border: .125rem solid $btn_color;
+  border-radius: .5rem;
+  padding: 1rem 4rem;
+  color: $color_white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }

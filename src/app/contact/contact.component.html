@@ -1,9 +1,37 @@
-<section class="wrapper">
-    <div>
-        Portfolio
+<section class="contact__wrapper">
+    <div class="contact__cv">
+        <a href="">
+            <button class="" target="_blank"> <fa-icon [icon]="faDownload" size="xs"></fa-icon> Resume </button>
+        </a>
     </div>
-    The contact cta
-    <div>
-        C.v
+    <div class="contact__details">
+        <span class="social__contact">
+            hello@normanmunge.me
+        </span>
+        <ul class="social__wrapper">
+          <li class="social__item">
+            <a href="https://github.com/normanmunge" target="_blank">
+                <fa-icon [icon]="faGithub" size="lg"></fa-icon>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="https://www.linkedin.com/in/normanmunge/" target="_blank">
+                <fa-icon [icon]="faLinkedIn" size="lg"></fa-icon>
+            </a>
+          </li>
+          <li class="social__item">
+            <a href="https://medium.com/norman-munge" target="_blank">
+                <fa-icon [icon]="faMedium" size="lg"></fa-icon>
+            </a>
+          </li>
+          <!-- <li class="social__item">
+            <a href="" target="_blank">
+                <fa-icon [icon]="faTwitter" size="lg"></fa-icon>
+            </a>
+          </li> -->
+        </ul> 
     </div>
 </section>
+<div class="contact__copyright">
+    &copy; All rights reserved {{this.currentYear()}}
+</div>
