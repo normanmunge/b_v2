@@ -110,7 +110,7 @@
     }
 
     &__description {
-      @apply p-1 font-light text-center md:text-right;
+      @apply p-1 font-light text-center md:text-left;
     }
 
     &__image {
@@ -151,7 +151,7 @@
   }
 
   .navigation {
-    @apply relative self-center md:self-end;
+    @apply relative self-center md:self-end md:text-right;
   }
 
   .quote {
@@ -234,6 +234,10 @@
   
       &.is--back-end {
         background-color: $color_primary;
+
+        @include breakpoint(med-large) {
+          order: 2;
+        }
       }
     }
   }
@@ -254,8 +258,18 @@
   &__details {
     $paddingTop: calc(#{$globalPagePadding} / 2);
     $paddingBottom: calc(#{$globalPagePadding} / 3);
+    $paddingLeft: 2rem;
+    $paddingLeftLarge: 12rem;
+    $paddingRightLarge: 12rem;
 
     @include globalPagePadding($top: $paddingTop, $mobileTop: $paddingTop, $mobileBottom: $paddingBottom);
+    
+    @include breakpoint(med-large) {
+      @include globalPagePadding($left: $paddingLeft);
+    }
+    @include breakpoint(xlarge) {
+      @include globalPagePadding($left: $paddingLeftLarge, $right: $paddingRightLarge);
+    }
   }
 
   &__profile {
@@ -267,6 +281,7 @@
   &__wrapper {
     @include breakpoint(med-large) {
       margin-left: 4.375rem;
+      margin-top: -8.125rem;
     }
   }
 
@@ -278,9 +293,6 @@
     &-surname {
       color: $color_primary;
     }
-  }
-
-  &__description {
   }
 
   &__image {
