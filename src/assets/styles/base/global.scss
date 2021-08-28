@@ -12,10 +12,12 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
 }
 
 body {
   background-color: $color_base;
+  width: 100%;
 }
 
 p,
