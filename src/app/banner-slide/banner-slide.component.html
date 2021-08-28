@@ -17,7 +17,7 @@
     </span>
     <div class="banner__wrapper--right">
       <ul class="skills__list">
-        <li *ngFor="let skill of this.frontEndSkills" class="skills__list-item">
+        <li *ngFor="let skill of this.frontEndSkills" class="skills__list-item" attr.aria-label={{skill}}>
           {{ skill }}
         </li>
       </ul>
@@ -27,7 +27,7 @@
     <div class="banner__wrapper--left is--back-end">
         <!-- My top skills <br /> -->
         <ul class="skills__list">
-          <li *ngFor="let skill of this.backEndSkills" class="skills__list-item">
+          <li *ngFor="let skill of this.backEndSkills" class="skills__list-item" attr.aria-label={{skill}}>
             {{ skill }}
           </li>
         </ul>
