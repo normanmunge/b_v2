@@ -5,7 +5,9 @@ module.exports = {
     prefix: '',
     purge: {
         content: {
-            enabled: process.env.NODE_ENV === 'production',
+            //TODO:-> Change for production only
+            // enabled: process.env.NODE_ENV === 'production',
+            enabled: true,
             content : [
                 './src/**/*.{html,ts}'
             ]
